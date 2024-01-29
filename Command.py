@@ -124,7 +124,10 @@ class Commands:
     
     def _clear(self):
         files = self.get_files_in_folder()
-        for i in range(1, len(files)):
+        num = self.data["playing_no."] - 1
+        for i in range(0, len(files)):
+            if i == num:
+                continue
             os.remove(files[i])
     
     def _loop(self):
