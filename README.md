@@ -26,3 +26,7 @@ Musicbot uses pytube to download youtube audio into video folder. It uses thread
     - play the song after a pause
 - clear
     - remove all the songs except for the song that is currently playing
+
+## Suggestions
+- You can create multiple playlist and save them to many different folder.
+- Whenever you want, you can select which playlist to play and the best part is that it can run even while the internet is off
