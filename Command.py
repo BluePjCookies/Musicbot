@@ -116,7 +116,7 @@ class Commands:
             tag = list(s.streams.filter(only_audio=True).itag_index)[0]
             stream = s.streams.get_by_itag(tag)
             print("Downloading")
-            stream.download(output_path=self.video_folder, filename_prefix=f'{str(files_len+1)}.', max_retries = 15)
+            stream.download(output_path=self.video_folder, filename_prefix=f'{str(files_len+1)}.', max_retries = 5)
             print("Download success")
             
         except Exception as e:
@@ -142,7 +142,8 @@ class Commands:
     def _quit(self):
         self.data["quit"] = True
         fprint("green", "Commands quitting")
-        self.process.terminate()
+        if self.process is not None:
+            self.process.terminate()
     
     def _pause(self):
         self.data["is_paused"] = True

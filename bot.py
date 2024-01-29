@@ -15,6 +15,7 @@ class MusicBot(Commands):
             else:
                 index = self.data["playing_no."]
                 data = self.data
+                files = self.get_files_in_folder()
                 if data["is_paused"] is False:
                     self.play(files[index-1])
                     #after audio played
@@ -38,9 +39,11 @@ class MusicBot(Commands):
                     
                     self._update_files_no()
                     files = self.get_files_in_folder()
-                    
-                    index = ((index-1) % len(files)) + 1
-                    self.data["playing_no."] = index
+                    if files != []:
+                        index = ((index-1) % len(files)) + 1
+                        self.data["playing_no."] = index
+                    else:
+                        fprint("red", "bold", "No files in video folder")
                 else:
                     time.sleep(1)
 
