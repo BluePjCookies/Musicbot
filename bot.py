@@ -38,11 +38,9 @@ class MusicBot(Commands):
                     
                     self._update_files_no()
                     files = self.get_files_in_folder()
-                    if files != []:
-                        index = ((index-1) % len(files)) + 1
-                        self.data["playing_no."] = index
-                    else:
-                        fprint("red", "No files in folder")
+                    
+                    index = ((index-1) % len(files)) + 1
+                    self.data["playing_no."] = index
                 else:
                     time.sleep(1)
 
