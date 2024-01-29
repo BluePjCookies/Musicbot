@@ -1,5 +1,5 @@
 import queue
-from Musicbot.formatting import fprint
+from formatting import fprint
 import os
 from pytube import Search
 import subprocess
@@ -20,7 +20,8 @@ class Commands:
     
     def get_files_in_folder(self):
         files = os.listdir(self.video_folder)
-        files.remove(".DS_Store")
+        if ".DS_Store" in files: #this is a really bad problem that apple have
+            files.remove(".DS_Store")
         files.sort(key=lambda x : int(x.split(".")[0]))
         files_full_path = [self.video_folder + f"/{file}" for file in files]
         return files_full_path
@@ -37,7 +38,6 @@ class Commands:
             if query == "":
                 pass
             elif query == "q" or query == "queue":
-                fprint("pressing queue")
                 files = self.get_files_in_folder()
                 
                 data = self.data

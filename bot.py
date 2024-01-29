@@ -1,9 +1,9 @@
-from Musicbot.Command import Commands
+from Command import Commands
 import threading
 import time
 import subprocess
 import os
-from Musicbot.formatting import fprint
+from formatting import fprint
 class MusicBot(Commands):
     def __init__(self, video_folder):
         super().__init__(video_folder)
