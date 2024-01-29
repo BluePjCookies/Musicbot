@@ -18,7 +18,7 @@ Musicbot uses pytube to download youtube audio into video folder. It uses thread
     - Allow one to loop through the queue
     - if loop is set to False (which is the default), it will delete the audio after the audio has finished playing
 - remove xx
-    - replace xx with the song number provided on the queue
+    - replace xx with the song number provided by the queue
     - You cannot remove the song which you are currently playing, but you can skip it
 - pause
     - pause the song
