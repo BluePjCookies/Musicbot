@@ -1,7 +1,6 @@
 from Command import Commands
 import threading
 import time
-import subprocess
 import os
 from formatting import fprint
 class MusicBot(Commands):
@@ -39,13 +38,16 @@ class MusicBot(Commands):
                     
                     self._update_files_no()
                     files = self.get_files_in_folder()
-                    index = ((index-1) % len(files)) + 1
-                    self.data["playing_no."] = index
+                    if files != []:
+                        index = ((index-1) % len(files)) + 1
+                        self.data["playing_no."] = index
+                    else:
+                        fprint("red", "No files in folder")
                 else:
                     time.sleep(1)
 
 if __name__ == "__main__":
-    musicbot = MusicBot(video_folder="/Users/Joshua/Vscode/Python/Youtube/video_files")
+    musicbot = MusicBot(video_folder="/Users/Joshua/Vscode/Python/Youtube/Musicbot/video_folder")
     thread = threading.Thread(target=musicbot.bot)
     thread.start()
     print("music bot query starting")
