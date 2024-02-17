@@ -7,7 +7,7 @@ class Formatter:
             "yellow": "\033[33m",
             "blue": "\033[34m",
             "purple": "\033[35m",
-            "cyan ": "\033[36m",
+            "cyan": "\033[36m",
             "white": "\033[37m",
             "blackb": "\033[40m",
             "redb": "\033[41m",
